@@ -1,0 +1,9 @@
+{
+  "name": "escompose",
+  "version": "0.0.0",
+  "description": "Esprima compatible AST composition",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toyatech/escompose"
+  }
+}

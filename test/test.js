@@ -1,3 +1,3 @@
 var escompose = require('../escompose');
 
-escompose.FunctionDeclaration();
+console.log(escompose.FunctionDeclaration());

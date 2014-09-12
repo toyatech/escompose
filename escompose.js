@@ -1,22 +1,24 @@
 (function (root, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports'], factory);
-  } else if (typeof exports !== 'undefined') {
-    factory(exports);
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
   } else {
-    factory((root.escompose = {}));
+    root = factory();
   }
-}(this, function (exports) {
+}(this, function () {
   'use strict';
-  
-  exports.Node = function(type, def) { return Object.create({ type: type }, def); }
-  exports.Program = function(options) { 
+
+  function Program(options) { 
     var options = options || {};
+    this.type = 'Program';
     this.body = options.body || [];
-    return Node('Program', { body: body }); 
-  }
-  exports.FunctionDeclaration = function(options) {
+    return this;
+  };
+
+  function FunctionDeclaration(options) {
     var options = options || {};
+    this.type = 'FunctionDeclaration';
     this.id = options.id || null;
     this.params = options.params || [];
     this.defaults = options.defaults || [];
@@ -24,8 +26,12 @@
     this.body = options.body || {};
     this.generator = options.generator || false;
     this.expression = options.expression || false;
-    return Node('FunctionDeclaration', this); 
-  }
+    return this; 
+  };
   
+  return {
+    Program: Program,
+    FunctionDeclaration: FunctionDeclaration
+  }
 
 }));

@@ -5,5 +5,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/toyatech/escompose"
+  },
+  "devDependencies": {
+    "esprima": "^1.2.2"
   }
 }
